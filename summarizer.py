@@ -2,14 +2,13 @@
 
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-# Use mT5 multilingual model that supports Arabic and English
+# Load multilingual mT5 model
 model_name = "csebuetnlp/mT5_multilingual_XLSum"
-
-# ✅ Use slow tokenizer for SentencePiece compatibility
 tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
 def summarize_text(text, lang="en"):
+    """Summarizes input text using mT5 with language prefix."""
     prefix_map = {
         "en": "summarize: ",
         "ar": "تلخيص: "
