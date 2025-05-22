@@ -1,6 +1,5 @@
 streamlit
 transformers
 torch
-nltk
 beautifulsoup4
 sentencepiece
